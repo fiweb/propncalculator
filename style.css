@@ -333,6 +333,24 @@ button#reset {
   background-color: #2f855a;
 }
 
+/* Backspace button styles */
+#calc-backspace {
+  background-color: #ff9800;
+  color: white;
+}
+
+#calc-backspace:hover {
+  background-color: #f57c00;
+}
+
+.dark #calc-backspace {
+  background-color: #2d3748;
+}
+
+.dark #calc-backspace:hover {
+  background-color: #4a5568;
+}
+
 /* Media query for mobile devices */
 @media (max-width: 768px) {
   .app-container {

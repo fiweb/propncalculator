@@ -92,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const calcButtons = document.querySelectorAll(".calc-btn");
   const clearButton = document.getElementById("calc-clear");
   const equalsButton = document.getElementById("calc-equals");
+  const backspaceButton = document.getElementById("calc-backspace");
 
   let currentValue = "";
   let currentOperation = null;
@@ -101,7 +102,11 @@ document.addEventListener("DOMContentLoaded", function () {
   calculatorInput.value = "0";
 
   calcButtons.forEach((button) => {
-    if (button.id !== "calc-clear" && button.id !== "calc-equals") {
+    if (
+      button.id !== "calc-clear" &&
+      button.id !== "calc-equals" &&
+      button.id !== "calc-backspace"
+    ) {
       button.addEventListener("click", () => {
         const value = button.getAttribute("data-value");
 
@@ -120,6 +125,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   equalsButton.addEventListener("click", () => {
     calculate();
+  });
+
+  backspaceButton.addEventListener("click", () => {
+    backspace();
   });
 
   function appendNumber(number) {
@@ -189,6 +198,20 @@ document.addEventListener("DOMContentLoaded", function () {
     shouldResetInput = false;
   }
 
+  function backspace() {
+    if (shouldResetInput || calculatorInput.value === "Error") {
+      calculatorInput.value = "0";
+      shouldResetInput = false;
+      return;
+    }
+
+    if (calculatorInput.value.length > 1) {
+      calculatorInput.value = calculatorInput.value.slice(0, -1);
+    } else {
+      calculatorInput.value = "0";
+    }
+  }
+
   document.addEventListener("keydown", (event) => {
     if (event.key >= "0" && event.key <= "9") {
       appendNumber(event.key);
@@ -210,12 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       clear();
     } else if (event.key === "Backspace") {
-      if (!shouldResetInput && calculatorInput.value !== "0") {
-        calculatorInput.value = calculatorInput.value.slice(0, -1);
-        if (calculatorInput.value === "") {
-          calculatorInput.value = "0";
-        }
-      }
+      backspace();
     }
   });
 });
