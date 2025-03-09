@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proportion Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="container proportion-container">
+        <div class="theme-toggle">
+          <button id="theme-toggle-button">
+            <div class="theme-icon-container"></div>
+          </button>
+        </div>
+        <h1>Proportion Calculator</h1>
+        <div class="input-group">
+          <label for="a">Value A:</label>
+          <input type="text" id="a" name="a" placeholder="Enter value or x" />
+        </div>
+        <div class="input-group">
+          <label for="b">Value B:</label>
+          <input type="text" id="b" name="b" placeholder="Enter value or x" />
+        </div>
+        <div class="equal">=</div>
+        <div class="input-group">
+          <label for="c">Value C:</label>
+          <input type="text" id="c" name="c" placeholder="Enter value or x" />
+        </div>
+        <div class="input-group">
+          <label for="d">Value D:</label>
+          <input type="text" id="d" name="d" placeholder="Enter value or x" />
+        </div>
+        <button id="calculate">Calculate</button>
+        <button id="reset">Reset</button>
+
+        <!-- Calculator Toggle Button for Mobile -->
+        <div class="calculator-toggle">
+          <button id="calculator-toggle-button" aria-label="Toggle Calculator">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="4" y="3" width="16" height="18" rx="2" ry="2"></rect>
+              <line x1="8" y1="7" x2="16" y2="7"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+              <line x1="8" y1="17" x2="16" y2="17"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="container calculator-container">
+        <h1>Calculator</h1>
+        <div class="calculator">
+          <div class="calculator-display">
+            <input type="text" id="calculator-input" readonly />
+          </div>
+          <div class="calculator-buttons">
+            <div class="calculator-row">
+              <button class="calc-btn" data-value="7">7</button>
+              <button class="calc-btn" data-value="8">8</button>
+              <button class="calc-btn" data-value="9">9</button>
+              <button class="calc-btn operator" data-value="/">/</button>
+            </div>
+            <div class="calculator-row">
+              <button class="calc-btn" data-value="4">4</button>
+              <button class="calc-btn" data-value="5">5</button>
+              <button class="calc-btn" data-value="6">6</button>
+              <button class="calc-btn operator" data-value="*">×</button>
+            </div>
+            <div class="calculator-row">
+              <button class="calc-btn" data-value="1">1</button>
+              <button class="calc-btn" data-value="2">2</button>
+              <button class="calc-btn" data-value="3">3</button>
+              <button class="calc-btn operator" data-value="-">-</button>
+            </div>
+            <div class="calculator-row">
+              <button class="calc-btn" data-value="0">0</button>
+              <button class="calc-btn" data-value=".">.</button>
+              <button class="calc-btn" id="calc-clear">C</button>
+              <button class="calc-btn operator" data-value="+">+</button>
+            </div>
+            <div class="calculator-row">
+              <button class="calc-btn equals" id="calc-equals">=</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
