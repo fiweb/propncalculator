@@ -334,12 +334,12 @@ button#reset {
 
 /* Backspace button styles */
 #calc-backspace {
-  background-color: #ff9800;
+  background-color: #0284c7;
   color: white;
 }
 
 #calc-backspace:hover {
-  background-color: #f57c00;
+  background-color: #0b64f4;
 }
 
 .dark #calc-backspace {
