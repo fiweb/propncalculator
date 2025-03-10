@@ -68,17 +68,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const isCalcOpen = localStorage.getItem("calculatorOpen") === "true";
 
-  if (isCalcOpen && window.innerWidth <= 768) {
+  // Set initial state based on screen width and stored preference
+if (window.innerWidth <= 768) {
+  if (isCalcOpen) {
     calculatorContainer.classList.add("active");
+    calculatorContainer.style.display = "block";  // Add this line
+  } else {
+    calculatorContainer.style.display = "none";   // Add this line
   }
+} else {
+  calculatorContainer.style.display = "block";    // Add this line
+}
 
-  calculatorToggleButton.addEventListener("click", function () {
-    calculatorContainer.classList.toggle("active");
-    localStorage.setItem(
-      "calculatorOpen",
-      calculatorContainer.classList.contains("active")
-    );
-  });
+calculatorToggleButton.addEventListener("click", function () {
+  calculatorContainer.classList.toggle("active");
+  // Add display toggle here too
+  calculatorContainer.style.display = calculatorContainer.classList.contains("active") ? "block" : "none";
+  localStorage.setItem(
+    "calculatorOpen",
+    calculatorContainer.classList.contains("active")
+  );
+});
 
   window.addEventListener("resize", function () {
     if (window.innerWidth > 768) {
